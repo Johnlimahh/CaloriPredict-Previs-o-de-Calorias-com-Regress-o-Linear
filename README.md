@@ -1,1 +1,1 @@
-# CaloriPredict-Previs-o-de-Calorias-com-Regress-o-Linear
+# CaloriPredict-Previsao-de-Calorias-com-Regressao-Linear
