@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Classificação de Atletas</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Importação do Chart.js -->
+</head>
+
+<body>
+  <div class="container">
+    <h1>Classificação de Atletas</h1>
+
+    <label for="peso">Peso do Atleta (Kg):</label>
+    <input type="number" id="peso" placeholder="Ex: 78">
+
+    <label for="velocidade">Velocidade da Corrida (Km/h):</label>
+    <input type="number" id="velocidade" placeholder="Ex: 8">
+
+    <label for="distancia">Distância percorrida (Km):</label>
+    <input type="number" id="distancia" placeholder="Ex: 5.2">
+
+    <button onclick="adicionarAtleta()">Adicionar Atleta</button>
+    <button onclick="agruparAtletas()">Agrupar Atletas</button>
+    <button onclick="preverCalorias()">Prever Calorias</button>
+
+    <h2>Dados dos Atletas</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Peso (Kg)</th>
+          <th>Velocidade (Km/h)</th>
+          <th>Distância (Km)</th>
+          <th>Calorias Queimadas</th>
+          <th>Grupo</th>
+        </tr>
+      </thead>
+      <tbody id="tabelaAtletas"></tbody>
+    </table>
+
+    <h2>Gráfico de Desempenho</h2>
+    <canvas id="graficoAtletas"></canvas> <!-- Gráfico -->
+
+    <h2>Previsão de Calorias</h2>
+    <label for="novaDistancia">Distância percorrida (Km):</label>
+    <input type="number" id="novaDistancia" placeholder="Ex: 7.5">
+    <button onclick="calcularPrevisao()">Calcular</button>
+
+    <p id="resultadoPrevisao"></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
