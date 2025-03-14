@@ -1,57 +1,45 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Classificação de Atletas</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Importação do Chart.js -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CaloriPredict: Previsão de Calorias</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-
 <body>
-  <div class="container">
-    <h1>Classificação de Atletas</h1>
+    <h1>Previsão de Calorias Queimadas</h1>
 
-    <label for="peso">Peso do Atleta (Kg):</label>
-    <input type="number" id="peso" placeholder="Ex: 78">
-
-    <label for="velocidade">Velocidade da Corrida (Km/h):</label>
-    <input type="number" id="velocidade" placeholder="Ex: 8">
-
-    <label for="distancia">Distância percorrida (Km):</label>
-    <input type="number" id="distancia" placeholder="Ex: 5.2">
-
-    <button onclick="adicionarAtleta()">Adicionar Atleta</button>
-    <button onclick="agruparAtletas()">Agrupar Atletas</button>
-    <button onclick="preverCalorias()">Prever Calorias</button>
+    <div class="formulario">
+        <label>Peso (Kg): <input type="number" id="peso"></label>
+        <label>Velocidade (Km/h): <input type="number" id="velocidade"></label>
+        <label>Distância (Km): <input type="number" id="distancia"></label>
+        <button onclick="adicionarAtleta()">Adicionar Atleta</button>
+    </div>
 
     <h2>Dados dos Atletas</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Peso (Kg)</th>
-          <th>Velocidade (Km/h)</th>
-          <th>Distância (Km)</th>
-          <th>Calorias Queimadas</th>
-          <th>Grupo</th>
-        </tr>
-      </thead>
-      <tbody id="tabelaAtletas"></tbody>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Peso</th>
+                <th>Velocidade</th>
+                <th>Distância</th>
+                <th>Calorias</th>
+                <th>Categoria</th>
+            </tr>
+        </thead>
+        <tbody id="tabelaAtletas"></tbody>
     </table>
 
-    <h2>Gráfico de Desempenho</h2>
-    <canvas id="graficoAtletas"></canvas> <!-- Gráfico -->
+    <h2>Gráfico de Calorias x Distância</h2>
+    <canvas id="graficoAtletas"></canvas>
 
     <h2>Previsão de Calorias</h2>
-    <label for="novaDistancia">Distância percorrida (Km):</label>
-    <input type="number" id="novaDistancia" placeholder="Ex: 7.5">
-    <button onclick="calcularPrevisao()">Calcular</button>
-
+    <label>Distância Prevista (Km): <input type="number" id="novaDistancia"></label>
+    <button onclick="preverCalorias()">Gerar Equação</button>
+    <button onclick="calcularPrevisao()">Calcular Previsão</button>
     <p id="resultadoPrevisao"></p>
-  </div>
 
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
-
 </html>
