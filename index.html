@@ -9,37 +9,35 @@
 </head>
 <body>
     <h1>Previsão de Calorias Queimadas</h1>
-
     <div class="formulario">
+        <label>Nome do Atleta: <input type="text" id="nomeAtleta"></label>
         <label>Peso (Kg): <input type="number" id="peso"></label>
         <label>Velocidade (Km/h): <input type="number" id="velocidade"></label>
         <label>Distância (Km): <input type="number" id="distancia"></label>
         <button onclick="adicionarAtleta()">Adicionar Atleta</button>
     </div>
-
     <h2>Dados dos Atletas</h2>
     <table border="1">
         <thead>
             <tr>
+                <th>Nome</th>
                 <th>Peso</th>
                 <th>Velocidade</th>
                 <th>Distância</th>
                 <th>Calorias</th>
                 <th>Categoria</th>
+                <th>Esporte Recomendado</th>
             </tr>
         </thead>
         <tbody id="tabelaAtletas"></tbody>
     </table>
-
     <h2>Gráfico de Calorias x Distância</h2>
     <canvas id="graficoAtletas"></canvas>
-
     <h2>Previsão de Calorias</h2>
     <label>Distância Prevista (Km): <input type="number" id="novaDistancia"></label>
     <button onclick="preverCalorias()">Gerar Equação</button>
     <button onclick="calcularPrevisao()">Calcular Previsão</button>
     <p id="resultadoPrevisao"></p>
-
     <script src="script.js"></script>
 </body>
 </html>
