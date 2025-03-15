@@ -59,6 +59,7 @@ function adicionarAtleta() {
         
         atualizarTabela();
         atualizarGrafico();
+        salvarDadosLocalStorage(); // Salva os dados sempre que um atleta for adicionado
         
         // Limpar os campos após adicionar
         document.getElementById("nomeAtleta").value = "";
@@ -67,6 +68,16 @@ function adicionarAtleta() {
         document.getElementById("distancia").value = "";
     } else {
         alert("Preencha todos os campos corretamente.");
+    }
+}
+
+// Nova função para salvar os dados no localStorage
+function salvarDadosLocalStorage() {
+    try {
+        localStorage.setItem('atletasSupervisionados', JSON.stringify(atletas));
+        console.log("Dados salvos com sucesso no localStorage");
+    } catch (error) {
+        console.error("Erro ao salvar dados no localStorage:", error);
     }
 }
 
@@ -190,3 +201,30 @@ function calcularPrevisao() {
     const caloriasPrevistas = window.coeficientes.slope * novaDistancia + window.coeficientes.intercept;
     document.getElementById("resultadoPrevisao").innerHTML += `<br>Para ${novaDistancia} Km, a previsão é de ${caloriasPrevistas.toFixed(2)} Kcal`;
 }
+
+// Carregar dados ao iniciar a página
+window.addEventListener('DOMContentLoaded', function() {
+    try {
+        const dadosSalvos = localStorage.getItem('atletasSupervisionados');
+        if (dadosSalvos) {
+            const atletasSalvos = JSON.parse(dadosSalvos);
+            if (atletasSalvos.length > 0) {
+                atletas = atletasSalvos;
+                atualizarTabela();
+                atualizarGrafico();
+                console.log(`Carregados ${atletas.length} atletas do localStorage`);
+            }
+        }
+    } catch (error) {
+        console.error("Erro ao carregar dados do localStorage:", error);
+    }
+});
+
+// Botão para exportar dados
+function exportarDados() {
+    salvarDadosLocalStorage();
+    alert(`Dados de ${atletas.length} atletas exportados com sucesso! Eles estarão disponíveis para importação na atividade não supervisionada.`);
+}
+
+// Adicionar botão de exportação na interface (você precisará adicionar este elemento HTML)
+// <button onclick="exportarDados()" class="btn btn-primary">Exportar Dados para Atividade Não Supervisionada</button>
