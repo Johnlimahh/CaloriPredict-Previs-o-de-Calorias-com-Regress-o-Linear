@@ -131,8 +131,6 @@ function atualizarGrafico() {
     data: { datasets },
     options: {
       responsive: true,
-      maintainAspectRatio: true, // Importante: manter proporção
-      aspectRatio: 2, // Proporção largura:altura (2:1)
       plugins: {
         tooltip: {
           callbacks: {
