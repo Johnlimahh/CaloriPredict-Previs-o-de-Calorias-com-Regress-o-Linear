@@ -67,9 +67,7 @@ tr:nth-child(even) {
 }
 canvas {
     margin: 20px auto;
-    max-width: 1200px; /* Aumentado de 1000px para 1200px */
-    width: 90%; /* Adicionando largura percentual para responsividade */
-    height: 500px; /* Definindo altura fixa para o gráfico */
+    max-width: 1000px;
     background-color: white;
     padding: 20px;
     border-radius: 8px;
@@ -84,14 +82,4 @@ canvas {
     background-color: #e3f2fd;
     border-radius: 5px;
     display: inline-block;
-}
-/* Container para o gráfico para melhor controle de dimensões */
-.grafico-container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
