@@ -116,14 +116,14 @@ function atualizarGrafico() {
       .map((a) => ({
         x: a.distancia,
         y: a.calorias,
-        r: 8, // Tamanho do ponto
+        r: 10, // Aumentado de 8 para 10 para melhor visualização
         nome: a.nome,
         categoria: a.categoria,
         esporte: a.esporteRecomendado
       })),
     backgroundColor: cores[categoria],
     borderColor: cores[categoria],
-    pointRadius: 6
+    pointRadius: 8  // Aumentado de 6 para 8
   }));
 
   chart = new Chart(ctx, {
@@ -131,6 +131,7 @@ function atualizarGrafico() {
     data: { datasets },
     options: {
       responsive: true,
+      maintainAspectRatio: false, // Importante para controlar o tamanho exato
       plugins: {
         tooltip: {
           callbacks: {
@@ -148,23 +149,46 @@ function atualizarGrafico() {
         },
         legend: {
           display: true,
-          position: "top"
+          position: "top",
+          labels: {
+            font: {
+              size: 14 // Aumentar tamanho da fonte da legenda
+            }
+          }
         }
       },
       scales: {
         x: {
-          title: { display: true, text: "Distância (Km)" },
+          title: { 
+            display: true, 
+            text: "Distância (Km)",
+            font: {
+              size: 14 // Aumentar tamanho da fonte do título
+            }
+          },
           ticks: {
             callback: function (value) {
               return value + " Km";
+            },
+            font: {
+              size: 12 // Aumentar tamanho da fonte dos valores
             }
           }
         },
         y: {
-          title: { display: true, text: "Calorias (Kcal)" },
+          title: { 
+            display: true, 
+            text: "Calorias (Kcal)",
+            font: {
+              size: 14 // Aumentar tamanho da fonte do título
+            }
+          },
           ticks: {
             callback: function (value) {
               return value + " Kcal";
+            },
+            font: {
+              size: 12 // Aumentar tamanho da fonte dos valores
             }
           }
         }
