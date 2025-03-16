@@ -31,28 +31,13 @@
         </thead>
         <tbody id="tabelaAtletas"></tbody>
     </table>
-    
-    <!-- Div container para o gráfico -->
-    <div class="grafico-container">
-        <h2>Gráfico de Calorias x Distância</h2>
-        <canvas id="graficoAtletas" height="500"></canvas>
-    </div>
-    
+    <h2>Gráfico de Calorias x Distância</h2>
+    <canvas id="graficoAtletas"></canvas>
     <h2>Previsão de Calorias</h2>
-    <div class="formulario">
-        <label>Distância Prevista (Km): <input type="number" id="novaDistancia"></label>
-        <div>
-            <button onclick="preverCalorias()">Gerar Equação</button>
-            <button onclick="calcularPrevisao()">Calcular Previsão</button>
-        </div>
-    </div>
+    <label>Distância Prevista (Km): <input type="number" id="novaDistancia"></label>
+    <button onclick="preverCalorias()">Gerar Equação</button>
+    <button onclick="calcularPrevisao()">Calcular Previsão</button>
     <p id="resultadoPrevisao"></p>
-    
-    <div class="acoes">
-        <button id="btnExportarDados" onclick="exportarDados()" class="btn btn-primary mt-3">Exportar Dados para Atividade Não Supervisionada</button>
-        <button id="btnLimparDados" onclick="limparDados()" class="btn btn-danger mt-3 ms-2">Limpar Dados</button>
-    </div>
-    
     <script src="script.js"></script>
 </body>
 </html>
