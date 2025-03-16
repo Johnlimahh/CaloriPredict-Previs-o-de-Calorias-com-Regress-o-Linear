@@ -131,7 +131,7 @@ function atualizarGrafico() {
     data: { datasets },
     options: {
       responsive: true,
-      maintainAspectRatio: false, // Importante para controlar o tamanho exato
+      maintainAspectRatio: true, // Importante para controlar o tamanho exato
       plugins: {
         tooltip: {
           callbacks: {
