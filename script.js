@@ -116,14 +116,14 @@ function atualizarGrafico() {
       .map((a) => ({
         x: a.distancia,
         y: a.calorias,
-        r: 10, // Aumentado de 8 para 10 para melhor visualização
+        r: 8, // Tamanho do ponto
         nome: a.nome,
         categoria: a.categoria,
         esporte: a.esporteRecomendado
       })),
     backgroundColor: cores[categoria],
     borderColor: cores[categoria],
-    pointRadius: 8  // Aumentado de 6 para 8
+    pointRadius: 6
   }));
 
   chart = new Chart(ctx, {
@@ -131,7 +131,8 @@ function atualizarGrafico() {
     data: { datasets },
     options: {
       responsive: true,
-      maintainAspectRatio: true, // Importante para controlar o tamanho exato
+      maintainAspectRatio: true, // Importante: manter proporção
+      aspectRatio: 2, // Proporção largura:altura (2:1)
       plugins: {
         tooltip: {
           callbacks: {
@@ -149,46 +150,23 @@ function atualizarGrafico() {
         },
         legend: {
           display: true,
-          position: "top",
-          labels: {
-            font: {
-              size: 14 // Aumentar tamanho da fonte da legenda
-            }
-          }
+          position: "top"
         }
       },
       scales: {
         x: {
-          title: { 
-            display: true, 
-            text: "Distância (Km)",
-            font: {
-              size: 14 // Aumentar tamanho da fonte do título
-            }
-          },
+          title: { display: true, text: "Distância (Km)" },
           ticks: {
             callback: function (value) {
               return value + " Km";
-            },
-            font: {
-              size: 12 // Aumentar tamanho da fonte dos valores
             }
           }
         },
         y: {
-          title: { 
-            display: true, 
-            text: "Calorias (Kcal)",
-            font: {
-              size: 14 // Aumentar tamanho da fonte do título
-            }
-          },
+          title: { display: true, text: "Calorias (Kcal)" },
           ticks: {
             callback: function (value) {
               return value + " Kcal";
-            },
-            font: {
-              size: 12 // Aumentar tamanho da fonte dos valores
             }
           }
         }
